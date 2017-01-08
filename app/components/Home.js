@@ -34,7 +34,7 @@ export class Home extends Component {
         icon={this.renderIcon(title)}
         theme="light"
         background="#ffffff"
-        selected={this.state ==null ? false: this.state.selected === title}
+        selected={this.state && this.state.selected === title}
         onSelect={() => this.setState({ selected: title })}
         padding="10px 20px"
         push
