@@ -23,7 +23,7 @@ export default class HomePage extends Component {
 
   handleChange = e =>  {
      console.log(e.target.value);
-		  this.setState({inputValue: e.target.value});
+     this.setState({ inputValue: e.target.value });
 	}
   
 
