@@ -21,8 +21,9 @@ export default class HomePage extends Component {
 
   saveData = e => console.log(this.state.inputValue);
 
-  handleChange(e) {
-			   this.setState({inputValue: e.target.value});
+  handleChange = e =>  {
+     console.log(e.target.value);
+		  this.setState({inputValue: e.target.value});
 	}
   
 
@@ -41,13 +42,14 @@ export default class HomePage extends Component {
         <Text>stuff here</Text>
         <TextInput
         ref="input"
+        key='datainput'
         theme={this.props.theme}
         color={this.props.color}
         
         label="Some Data"
         placeholder="My data"
         value={this.state.inputValue}
-        onChange={this.handleChange.bind(this)}
+        onChange={this.handleChange}
       />
       <Button push color={this.props.color} 
         onClick={()=>console.log(this.state.inputValue)}>
