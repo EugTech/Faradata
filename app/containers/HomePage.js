@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import Home from '../components/Home';
-import { NavPane, NavPaneItem, Text } from 'react-desktop/windows';
+import { NavPane, NavPaneItem, Text,TextInput,Button,View } from 'react-desktop/windows';
 
 
 export default class HomePage extends Component {
@@ -16,7 +16,15 @@ export default class HomePage extends Component {
     this.state = {
       selected: 'dataentry'
     }
+    
   }
+
+  saveData = e => console.log(this.state.inputValue);
+
+  handleChange(e) {
+			   this.setState({inputValue: e.target.value});
+	}
+  
 
   render() {
     return (
@@ -29,7 +37,23 @@ export default class HomePage extends Component {
         padding="10px 20px"
         push
       >
+        <View layout="vertical">
         <Text>stuff here</Text>
+        <TextInput
+        ref="input"
+        theme={this.props.theme}
+        color={this.props.color}
+        
+        label="Some Data"
+        placeholder="My data"
+        value={this.state.inputValue}
+        onChange={this.handleChange.bind(this)}
+      />
+      <Button push color={this.props.color} 
+        onClick={()=>console.log(this.state.inputValue)}>
+        Save the data
+      </Button>
+      </View>
       </NavPaneItem>
       </NavPane>
     );
